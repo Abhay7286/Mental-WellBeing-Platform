@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <h2>CalmCircle<br/>Share. Connect. Heal<br/>Together in CalmCircle</h2>
-      <button className="btn" style={{ backgroundColor: "skyblue", color: "white" }}>
+      <button className="btn" style={{ backgroundColor: "skyblue", color: "white"}}>
                 Log-in and tell us your story
       </button>
       

@@ -2,7 +2,7 @@ import Post from "../models/post.model.js";
 
 export const createPost = async (req, res) => {
     try {
-        const { message, image, description } = req.body;
+        const { message, image } = req.body;
 
         // Log incoming request details for debugging
         console.log("Incoming request body:", req.body);
@@ -14,7 +14,7 @@ export const createPost = async (req, res) => {
 
         const senderId = req.user._id;
         const senderDetails = {
-            name: req.user.username, // Ensure username is available here
+            name: req.user.username, 
             profilePicture: req.user.profilePicture 
         };
 
@@ -23,14 +23,13 @@ export const createPost = async (req, res) => {
             senderDetails,
             message,
             image,
-            description,
         });
 
         await newPost.save();
 
         res.status(201).json(newPost);
     } catch (error) {
-        console.error("Error in createPost controller:", error); // Log the entire error object
+        console.error("Error in createPost controller:", error); 
         return res.status(500).json({ error: "Internal server error" });
     }
 };

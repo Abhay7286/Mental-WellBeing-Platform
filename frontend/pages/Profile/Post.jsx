@@ -1,6 +1,9 @@
 import homeimg from '../../homeimg.png'
+import GetPost from '../../hooks/GetPost'
 
 const Post = () => {
+  const {post} = GetPost()
+  console.log(post)
   return (
       
         <div className="card" style={{ maxWidth: "50rem", margin: "1rem", display:"flex", flexDirection:"row"}}>

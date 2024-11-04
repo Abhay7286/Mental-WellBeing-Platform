@@ -11,9 +11,8 @@ const postSchema = new mongoose.Schema({
             type: String,
             required: true,
         },
-        profilePicture: {
+        profilePic: {
             type: String, 
-            required: true,
         },
     },
     message: {
