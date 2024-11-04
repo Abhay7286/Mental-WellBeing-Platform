@@ -1,0 +1,138 @@
+/* Container for the entire page */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('https://source.unsplash.com/random/1600x900');
+    background-size: cover;
+    background-position: center;
+    padding: 0 20px; /* Add padding for small screens */
+  }
+  
+  /* Signup box styling */
+  .signup-box {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Signup title and highlight text */
+  .signup-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .signup-highlight {
+    color: #4f46e5;
+  }
+  
+  /* Form group for inputs */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Input fields styling */
+  .input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input:focus {
+    border-color: #4f46e5;
+  }
+  
+  /* Gender options */
+  .gender-options {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  
+  .gender-options label {
+    font-size: 14px;
+    color: black; /* Change color to black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* Already have an account link */
+  .login-link {
+    display: block;
+    font-size: 14px;
+    color: #4f46e5;
+    text-align: right;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Signup button styling */
+  .signup-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .signup-button:hover {
+    background-color: #3b3bb7;
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .signup-title {
+      font-size: 24px; /* Smaller title on mobile */
+    }
+  
+    .input {
+      padding: 8px; /* Reduce padding on inputs */
+      font-size: 12px; /* Smaller font for inputs */
+    }
+  
+    .signup-button {
+      padding: 10px; /* Smaller button on mobile */
+      font-size: 14px; /* Smaller font for button */
+    }
+  
+    .gender-options {
+      flex-direction: column; /* Stack gender options on smaller screens */
+      align-items: flex-start; /* Align to the left */
+    }
+  
+    .gender-options label {
+      margin-bottom: 5px; /* Add spacing between gender options */
+    }
+  }
+  

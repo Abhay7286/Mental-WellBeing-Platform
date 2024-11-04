@@ -1,15 +1,18 @@
-import User from "../models/user.model.js"
+import User from "../models/user.model.js";
 
-export const getUsersForSideBar = async(req,res) => {
+export const getLoggedInUserDetails = async (req, res) => {
     try {
-        const loggedInUserId = req.user._id
+        const loggedInUserId = req.user._id;
 
-        const filteredUsers = await User.find({ _id:{$ne:loggedInUserId} }).select("-password")
+        const user = await User.findById(loggedInUserId).select("-password");
 
-        res.status(200).json(filteredUsers)
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
 
+        res.status(200).json(user);
     } catch (error) {
-        console.error("error in getUsersForSideBar controller",error.message)
-        res.status(500).json({error:"internal server error"})
+        console.error("Error in getLoggedInUserDetails controller", error.message);
+        res.status(500).json({ error: "Internal server error" });
     }
-}
+};

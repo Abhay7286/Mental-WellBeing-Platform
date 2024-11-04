@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
 import authRoutes from "./routes/auth.routes.js";
-import messageRoutes from "./routes/message.routes.js";
+import postRoutes from "./routes/post.routes.js";
 import usersRoutes from "./routes/users.routes.js";
 import connectToMongoDb from "./db/connectToMongoDb.js";
 
@@ -16,12 +16,8 @@ app.use(express.json());
 app.use(cookieParser()); // to parse the incoming cookies from req.cookie
 
 app.use("/api/auth", authRoutes)
-app.use("/api/messages", messageRoutes)
-app.use("/api/users", usersRoutes)
-
-// app.get("/", (req, res) => {
-//   res.send('Hello World!')
-// });
+app.use("/api/post", postRoutes )
+app.use("/api/user", usersRoutes)
 
 app.listen(PORT, () => {
   connectToMongoDb()
