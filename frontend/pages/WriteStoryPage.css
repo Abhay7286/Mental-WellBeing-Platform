@@ -1,0 +1,29 @@
+.write-story {
+    padding: 2rem;
+  }
+  
+  .story-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .banner-customization,
+  .text-banner,
+  .text-writing-space,
+  .keywords {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  @media (max-width: 768px) {
+    .story-container {
+      flex-direction: column;
+    }
+  }
+  
