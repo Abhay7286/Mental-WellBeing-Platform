@@ -1,40 +1,35 @@
 import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
-import GetId from '../zustand/GetId';
+import GetUser from './GetUser.js';
 
 const GetPost = () => {
   const [loading, setLoading] = useState(false);
-  const [post, setPost] = useState(null); 
-  const {loggedInUserId} = GetId();
+  const [posts, setPosts] = useState([]); 
+  const { profile } = GetUser();
 
   useEffect(() => {
     const getPost = async () => {
-    if (!loggedInUserId?._id) return; 
+      if (!profile._id) return;
+      
       setLoading(true);
       try {
-        const res = await fetch(`/api/post/${loggedInUserId}`); 
+        const res = await fetch(`/api/post/${profile._id}`); 
         const data = await res.json();
         if (data.error) {
           throw new Error(data.error);
         }
-        setPost(data);
+        setPosts(data);
       } catch (error) {
-        toast.error(error.message);
+        toast.error(`Failed to fetch posts: ${error.message}`);
       } finally {
         setLoading(false);
       }
     };
 
-    if (postId) { 
-      getPost();
-    }
+    getPost();
+  }, [profile._id]); 
 
-    return () => {
-
-    };
-  }, [postId]); 
-
-  return { loading, post };
+  return { loading, posts };
 };
 
 export default GetPost;
