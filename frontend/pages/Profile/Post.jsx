@@ -2,7 +2,6 @@ import homeimg from '../../homeimg.png';
 import GetPost from '../../hooks/GetPost.js';
 import { Link } from 'react-router-dom';
 
-
 const Post = () => {
   const { posts, loading } = GetPost();
 

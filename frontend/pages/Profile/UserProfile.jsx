@@ -7,7 +7,7 @@ const UserProfile = () => {
   if (loading) {
     return <div>Loading...</div>; 
   }
-  console.log(profile)
+  // console.log(profile)
 
   return (
     <div className="card" style={{ width: '18rem' }}>

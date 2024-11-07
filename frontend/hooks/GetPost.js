@@ -7,6 +7,8 @@ const GetPost = () => {
   const [posts, setPosts] = useState([]); 
   const { profile } = GetUser();
 
+  // console.log('GetPost Hook Rendered:', profile._id); // Logging profile._id
+
   useEffect(() => {
     const getPost = async () => {
       if (!profile._id) return;

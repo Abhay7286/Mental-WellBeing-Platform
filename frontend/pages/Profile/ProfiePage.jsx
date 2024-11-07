@@ -14,8 +14,6 @@ const ProfilePage = () => {
       >
         <div className="post">
           <Post />
-          <Post />
-          <Post />
         </div>
         <UserProfile />
       </div>
