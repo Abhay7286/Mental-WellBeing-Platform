@@ -1,17 +1,65 @@
-.stories {
+/* General styles for the Stories container */
+.stories-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 20px;
-  max-width: 600px;
-  margin: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
+/* Style for each story card */
+.story-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.post {
-  border: 1px solid #ccc;
-  padding: 10px;
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title of the story */
+.story-card h3 {
+  font-size: 1.5rem;
+  color: #333;
   margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Content of the story */
+.story-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Loading and no posts message */
+.loading-message,
+.no-posts-message {
+  font-size: 1.2rem;
+  color: #777;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Optional: Add a fade-in animation for smoother UX */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.stories-container {
+  animation: fadeIn 1s ease;
 }

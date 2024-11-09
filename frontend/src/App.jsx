@@ -32,16 +32,21 @@ function App() {
         />
         <Route
           path="/profile"
-          element={<ProfilePage/>}
+          element={authUser?<ProfilePage/>:<Navigate to ="/login"/>}
           />
         <Route
           path="/stories"
-          element={<Stories/>}
+          element={authUser?<Stories/>:<Navigate to="/login"/>}
+          />
+        <Route
+          path="/logout"
+          element={authUser?<Navigate to="/"/>:<Login/>}
           />
         <Route
           path="/createpost"
           element={<CreatePostForm/>}
           />
+
       </Routes>
     </>
   );
