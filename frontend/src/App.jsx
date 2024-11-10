@@ -8,6 +8,7 @@ import Signup from "../pages/Signup/Signup.jsx";
 import { useAuthContext } from '../context/AuthContext.jsx';
 import Stories from '../pages/Stories.jsx';
 import CreatePostForm from '../pages/CreatePostForm.jsx';
+import Discuss from '../pages/discussion/discuss.jsx';
 
 
 function App() {
@@ -45,6 +46,10 @@ function App() {
         <Route
           path="/createpost"
           element={<CreatePostForm/>}
+          />
+        <Route
+          path="/discussion"
+          element={<Discuss/>}
           />
 
       </Routes>

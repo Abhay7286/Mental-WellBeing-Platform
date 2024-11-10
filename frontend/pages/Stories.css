@@ -49,7 +49,11 @@
   text-align: center;
   padding: 20px;
 }
-
+.reaction{
+  display: flex;
+    align-items: center;
+    gap: 1em;
+}
 /* Optional: Add a fade-in animation for smoother UX */
 @keyframes fadeIn {
   from {
