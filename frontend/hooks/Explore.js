@@ -6,7 +6,6 @@ const Explore = () => {
   const [posts, setPost] = useState([])
   const [loading, setloading] = useState(false)
   const { profile } = GetUser();
-//   console.log(profile._id)
 
   useEffect(() => {
    const getAllPosts = async()=> {

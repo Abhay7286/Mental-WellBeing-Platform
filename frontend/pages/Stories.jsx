@@ -1,22 +1,27 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import Explore from '../hooks/Explore.js';
-import './Stories.css';  
+import './Stories.css';
 import { AiOutlineLike } from "react-icons/ai";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { FaComments } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Stories = () => {
   const { posts, loading } = Explore();
-  const [isCommentsVisible, setisCommentsVisible] = useState(false);
+  const navigate = useNavigate();
 
-  const Toggle = (e) => {
+  const handleCommentClick = (postId) => {
+    navigate("/discussion", { state: { postId } });
+  };
+
+
+  const postid = (e, postId) => {
     e.preventDefault();
-    if(!isCommentsVisible){
-      setisCommentsVisible(true)
-    }
+    console.log("the id of the post", postId);
   }
-  
+
+
 
   if (loading) return <p className="loading-message">Loading posts...</p>;
 
@@ -25,15 +30,17 @@ const Stories = () => {
   return (
     <div className="stories-container">
       {posts.map((post) => (
-        <div key={post._id} className="story-card">
+        <div key={post._id} className="story-card" onClick={(e) => postid(e, post._id)}>
           <img src={post.image} alt="postimage" />
           <p>{post.message}</p>
           <p>post made by {post.senderDetails.name}</p>
           <div className="reaction">
-            <AiOutlineLike/>
-            <FcLikePlaceholder/>
-            {/* {isCommentsVisible?<Comments/>:<FaComments onClick={Toggle}/>} */}
-            <Link to="/discussion"><FaComments/></Link>
+            <AiOutlineLike />
+            <FcLikePlaceholder />
+            {console.log("Passing Post ID to Link:", post._id)}
+            <Link to="/discussion">
+              <FaComments onClick={() => handleCommentClick(post._id)} />
+            </Link>
           </div>
         </div>
       ))}

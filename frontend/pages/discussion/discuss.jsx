@@ -1,8 +1,22 @@
 import React from "react";
 import './discuss.css';
 import Comments from "../../components/comments.jsx";
+import { useLocation } from 'react-router-dom';
+
 
 const discuss = () => {
+  const location = useLocation();
+  console.log("Location state:", location.state); // Log location state
+  const postId = location.state?.postId;
+
+  if (!postId) {
+    return <p>Error: Post ID not found.</p>;
+  }
+
+
+  if (!postId) {
+    return <p>Error: Post ID not found.</p>;
+  }
   return (
     <section className="discussion-container py-8 lg:py-16">
       <div className="content-wrapper max-w-2xl mx-auto px-4">
@@ -53,7 +67,6 @@ const discuss = () => {
             </button>
           </div>
         </article>
-
         <article className="comment p-6 mb-3 ml-6 text-base bg-light-100 rounded-lg">
           <footer className="comment-footer flex justify-between items-center mb-2">
             <div className="user-info flex items-center">
